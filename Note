@@ -1,0 +1,125 @@
+Smart Burme Framework (SBF) ကို GitHub ပေါ်မှာ တည်ဆောက်ဖို့ အဆင့်များကတော့:
+
+၁. GitHub Repository တည်ဆောက်ခြင်း
+
+GitHub မှာသွင်းပြီး smart-burme-framework ဆိုတဲ့ repository အသစ်တစ်ခု ဖန်တီးပါ။
+
+Repository ကို README.md ဖိုင်၊ .gitignore ဖိုင်၊ လိုင်စင် (ဥပမာ MIT) စတဲ့ အရာတွေ ပါရှိအောင် စတင်ပေးပါ။
+
+
+၂. Repository အဆင့်အတန်းများ
+
+ဒီမှာရှိတဲ့ folder နှင့် ဖိုင် အကြောင်းကိုရှင်းပြပါမယ်။
+
+a. GitHub Configuration (.github/)
+
+workflows/: CI/CD pipeline အတွက် YAML ဖိုင်တွေ ထည့်ထားမယ်။ ဥပမာ test.yml ဖိုင်အတွက် automated testing လုပ်တာ။
+
+FUNDING.yml: Sponsor အချက်အလက်တွေ ထည့်သွင်းနိုင်တဲ့ optional ဖိုင်ပါ။
+
+
+b. Documentation (docs/)
+
+getting-started.md: Framework သုံးသူတွေအတွက် စတင်အသုံးပြုနည်း လမ်းညွှန်။
+
+api-reference.md: API များအတွက် အပြည့်အစုံ စာရွက်။
+
+examples/: အသုံးပြုလွယ်တဲ့ ကိုဒ် စနစ်တွေ ပါရှိတဲ့ folder။
+
+
+c. Source Code (src/)
+
+core/: Routing၊ Dependency Injection စတာတွေအတွက် main logic တွေ။
+
+utils/: Helper functions တွေ။
+
+cli/: Command-line tools ရေးမယ်ဆိုရင်ဒီမှာ ထည့်မယ်။
+
+types/: TypeScript တွေပါရင် type definitions တွေထည့်မယ်။
+
+
+d. Tests (tests/)
+
+unit/: Unit tests တွေ။
+
+integration/: Integration tests တွေ။
+
+
+e. Examples (examples/)
+
+basic-app/: Framework အသုံးပြုရန် မူလ setup နည်းလမ်း။
+
+advanced-app/: အသုံးပြုမှု အဆင့်မြင့်တဲ့ နမူနာ။
+
+
+f. Root Files
+
+.gitignore: Git ထဲမှာမပါရမယ့် ဖိုင်တွေကို သတ်မှတ်တဲ့ ဖိုင်။
+
+LICENSE: သင်ရွေးချယ်ထားတဲ့ လိုင်စင် (ဥပမာ MIT).
+
+README.md: Project Overview (လုပ်ဆောင်ရမယ့်အကြောင်းအရာများ)၊ installation instructions စတာတွေပါ။
+
+package.json: Node.js အတွက် dependencies နဲ့ scripts တွေ။
+
+pyproject.toml: Python dependencies အတွက် ရေးထားတဲ့ ဖိုင် (လိုအပ်ပါက)။
+
+
+
+---
+
+၃. CI/CD (Continuous Integration) အတွက် GitHub Actions စတင်ခြင်း
+
+.github/workflows/test.yml ဖိုင်ထဲမှာ Automated Testing အတွက် CI/CD pipeline ရေးထားပါ။
+
+name: Test Framework
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install Dependencies
+        run: npm install
+      - name: Run Tests
+        run: npm test
+
+ဒီ code က main branch ပေါ်မှာ push လုပ်ရင် ဒါမှမဟုတ် pull request လုပ်ရင် testing အလိုအလျောက် လုပ်ပေးမှာပါ။
+
+
+---
+
+၄. Project ကို GitHub ပေါ်မှာ တင်ခြင်း
+
+Dependencies Install: Node.js ဖြစ်ရင် npm install သို့မဟုတ် Python ဖြစ်ရင် pip install ကဲ့သို့ အတွက် package များ ထည့်ပါ။
+
+Test လုပ်ခြင်း: Test Framework တွေ အဆင်ပြေမလားစစ်ဆေးပါ။
+
+
+၅. GitHub ပေါ်မှာ Code Push လုပ်ခြင်း
+
+Project structure ကို GitHub repository ထဲမှာ ပေါင်းထည့်ပါ။
+
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin <your-repository-url>
+git push -u origin main
+
+
+---
+
+အကူအညီတစ်ခုခုလိုပါက ပြောပါ!
+
