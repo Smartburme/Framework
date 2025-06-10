@@ -1,95 +1,104 @@
-# **Smart Burme Framework - GitHub Repository Description**  
-
-**🇲🇲 မြန်မာ့ဒီဂျစ်တယ်ဖွံ့ဖြိုးရေးအတွက် အထူးပြုထားသော Framework**  
-
-## **📜 မိတ်ဆွေ**  
-**Smart Burme Framework** သည် မြန်မာ့နည်းမြန်မာ့ဟန်နှင့် ကိုက်ညီသော **Web & Mobile App Development Framework** တစ်ခုဖြစ်ပြီး၊ မြန်မာဘာသာစကား၊ ငွေပေးချေမှုစနစ်များ (WavePay, KBZPay) နှင့် အခြားဒေသဆိုင်ရာ လိုအပ်ချက်များကို အထူးထောက်ပံ့ပေးထားပါသည်။  
+# **Framework Project Structure (GitHub)**
+အောက်ပါဖိုင်တွဲစနစ်သည် **GitHub ပေါ်တွင် Framework တစ်ခုတည်ဆောက်ရန်** အတွက် စံနမူနာတစ်ခုဖြစ်ပြီး၊ ဘာသာစကား/ပလက်ဖောင်းအလိုက် ပြောင်းလဲနိုင်ပါသည်။
 
 ```
-✨ အဓိက အားသာချက်များ:
-- ဇော်ဂျီ/ယူနီကုဒ် အလိုအလျောက်ပြောင်းခြင်း
-- မြန်မာပြက္ခဒိန် & ရက်စွဲတွက်ချက်မှုများ
-- အခြေခံမြန်မာ UI Components (ဥပမာ - MPT, Telenor Style Forms)
-- မြန်မာ SMS & Payment Gateway (MPT, WavePay) Integration
+my-awesome-framework/  
+│
+├── 📂 .github/                  # GitHub Configurations
+│   ├── 📂 workflows/            # CI/CD Pipelines (GitHub Actions)
+│   │   └── 🏗️ test.yml          # Automated Testing
+│   └── 📜 FUNDING.yml           # Sponsorship Info (Optional)
+│
+├── 📂 docs/                     # Documentation
+│   ├── 📜 getting-started.md    # Beginner Guide
+│   ├── 📜 api-reference.md      # Full API Docs
+│   └── 📜 examples/            # Code Snippets
+│
+├── 📂 src/                      # Core Framework Code
+│   ├── 📜 core/                 # Main Logic (e.g., Routing, DI)
+│   ├── 📜 utils/                # Helper Functions
+│   ├── 📜 cli/                  # Command-Line Tools
+│   └── 📜 types/                # Type Definitions (TS)
+│
+├── 📂 tests/                    # Unit & Integration Tests
+│   ├── 📜 unit/                 # Isolated Tests
+│   └── 📜 integration/          # Cross-Feature Tests
+│
+├── 📂 examples/                 # Demo Projects
+│   ├── 📂 basic-app/            # Minimal Setup
+│   └── 📂 advanced-app/         # Complex Usage
+│
+├── 📜 .gitignore                # Ignored Files
+├── 📜 LICENSE                   # MIT/Apache/GPL
+├── 📜 README.md                 # Project Overview
+├── 📜 package.json              # Dependencies (Node.js)
+└── 📜 pyproject.toml            # Dependencies (Python)
 ```
 
 ---
 
-## **🚀 စတင်အသုံးပြုနည်း**  
+## **Key Directories Explained**
+### 1. **`.github/`**  
+- GitHub Actions (`workflows/`) ဖြင့် **Automated Testing/Deployment** ပြုလုပ်နိုင်သည်။  
+- `FUNDING.yml` တွင် Open-Source Sponsorship ခံယူနိုင်သည်။  
 
-### **1. Installation**  
-```bash
-# npm (JavaScript/TypeScript)
-npm install smart-burme-framework
+### 2. **`docs/`**  
+- Markdown ဖိုင်များဖြင့် **စနစ်တကျ Documentation** ရေးပါ။  
+- **Example Code** များထည့်ပါ (အသုံးပြုသူများ လွယ်ကူစေရန်)။  
 
-# pip (Python)
-pip install smart-burme
-```
+### 3. **`src/`**  
+- Framework ၏ **Core Logic** အားလုံးကို ဤနေရာတွင် စုစည်းပါ။  
+- Modular ဖြစ်အောင် `core/`, `utils/`, `cli/` စသဖြင့် ခွဲထားပါ။  
 
-### **2. နမူနာ Code**  
-```javascript
-// Zawgyi ↔ Unicode Converter
-const { unicodeToZawgyi } = require('smart-burme-framework/myanmar-utils');
-console.log(unicodeToZawgyi("မင်္ဂလာပါ")); // Output: မဂၤလာပါ (Zawgyi)
-```
+### 4. **`tests/`**  
+- **Unit Tests** (အနည်းဆုံး 80% Coverage ရှိပါစေ)။  
+- **Integration Tests** ဖြင့် Modules များ တွဲဖက်အလုပ်လုပ်ပုံကို စစ်ဆေးပါ။  
 
+### 5. **`examples/`**  
+- Framework ကို **လက်တွေ့အသုံးချပုံ** နမူနာများ ပြသပါ။  
+
+---
+
+## **Tech-Specific Variations**
+### **A) Python Framework**  
 ```python
-# Myanmar Calendar
-from smart_burme.myanmar_utils import get_mm_date
-print(get_mm_date())  # Output: "သီတင်းကျွတ် ၁၃၈၅"
+my-python-framework/
+├── 📂 src/
+│   └── 📜 __init__.py           # Package Initialization
+├── 📜 setup.py                  # pip Install Config
+└── 📜 requirements-dev.txt      # Dev Dependencies
+```
+
+### **B) JavaScript/TypeScript Framework**  
+```javascript
+my-js-framework/
+├── 📂 src/
+│   └── 📜 index.ts              # Main Export
+├── 📜 tsconfig.json             # TypeScript Config
+└── 📜 rollup.config.js          # Bundler (Optional)
+```
+
+### **C) Go Framework**  
+```go
+my-go-framework/
+├── 📂 cmd/                      # CLI Entry Points
+├── 📂 pkg/                      # Reusable Libraries
+└── 📜 go.mod                    # Dependency Management
 ```
 
 ---
 
-## **📂 Project Structure**  
-```
-smart-burme-framework/
-├── 📂 src/                  # Core Framework Logic
-│   ├── 📜 myanmar-utils/    # Zawgyi/Unicode, Calendar
-│   └── 📜 e-payment/        # WavePay, KBZPay API
-├── 📂 docs/                 # Myanmar Documentation
-├── 📂 examples/             # Sample Projects
-└── 📜 README-MM.md          # မြန်မာလို အသေးစိတ်
-```
+## **အရေးကြီးသော အချက်များ**
+1. **Modular Design** – Features များကို သီးသန့် Modules အဖြစ် ခွဲထားပါ။  
+2. **Testing First** – Code ရေးချိန်တွင် Test Cases ပါတွဲရေးပါ။  
+3. **SemVer** – Versioning (`v1.2.3`) ကို ဂရုတစိုက်လုပ်ပါ။  
+4. **Community** – `CONTRIBUTING.md` ဖြင့် Contributors များကို ဖိတ်ခေါ်ပါ။  
 
 ---
 
-## **🤝 ပါဝင်ဆောင်ရွက်လိုပါက**  
-1. **GitHub Repository** ကို **Fork** လုပ်ပါ။  
-2. **Pull Request** ပို့ပါ (မြန်မာလို/အင်္ဂလိပ်လို Documentation လုပ်နိုင်ပါသည်)။  
-3. **Feature Requests** များအတွက် [Issues](https://github.com/your-repo/issues) တွင် တင်ပါ။  
+### **နမူနာ GitHub Repositories**
+- [FastAPI](https://github.com/tiangolo/fastapi) (Python)  
+- [Next.js](https://github.com/vercel/next.js) (JavaScript)  
+- [Gin](https://github.com/gin-gonic/gin) (Go)  
 
-```markdown
-# ဥပမာ Contribution Guide
-- မြန်မာဘာသာဖြင့် Code Comments ရေးပါ။
-- Unit Tests များထည့်သွင်းပါ။
-- `docs/README-MM.md` တွင် မြန်မာလို Update လုပ်ပါ။
-```
-
----
-
-## **📜 License**  
-**MIT License** - မြန်မာဖွံ့ဖြိုးရေးအတွက် အခမဲ့အသုံးပြုနိုင်ပါသည်။  
-
----
-
-**🌐 Official Links:**  
-- [GitHub Repository](https://github.com/your-username/smart-burme-framework)  
-- [Live Demo](https://smart-burme.vercel.app)  
-
-**#OpenSourceMyanmar #DigitalMyanmar #SmartBurme**  
-
-<sub>© 2023 Smart Burme Framework Team | Made with ❤️ in Yangon</sub>  
-
---- 
-
-### **🔗 Sample Badges (For GitHub README)**  
-```markdown
-![Made in Myanmar](https://img.shields.io/badge/Made%20in-Myanmar-green)
-![Zawgyi Supported](https://img.shields.io/badge/Zawgyi-Convertible-yellow)
-```
----
-
-**📌 Note:**  
-- ဤ Framework သည် **မြန်မာ့ဒေသခံ Developer များ** အတွက် အထူးရည်ရွယ်ပါသည်။  
-- **ကျေးဇူးပြု၍ GitHub တွင် ⭐ (Star) ပေးခဲ့ပါ!**
+**🚀 သင့်ကိုယ်ပိုင် Framework ကို GitHub ပေါ်တွင် စတင်တည်ဆောက်လိုက်ပါ!**
