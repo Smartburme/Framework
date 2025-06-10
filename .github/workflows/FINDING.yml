@@ -1,0 +1,38 @@
+name: File Finding Scanner
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Daily at midnight UTC
+  workflow_dispatch:     # Manual trigger option
+
+jobs:
+  find-files:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Find files
+      id: search
+      run: |
+        # Find all .md files
+        echo "::set-output name=markdown_files::$(find . -name '*.md' | wc -l)"
+        
+        # Find all .js files
+        echo "::set-output name=js_files::$(find . -name '*.js' | wc -l)"
+        
+        # Find large files (>1MB)
+        echo "::set-output name=large_files::$(find . -type f -size +1M | wc -l)"
+    
+    - name: Display results
+      run: |
+        echo "Found ${{ steps.search.outputs.markdown_files }} Markdown files"
+        echo "Found ${{ steps.search.outputs.js_files }} JavaScript files"
+        echo "Found ${{ steps.search.outputs.large_files }} large files (>1MB)"
+        
+        # Optionally fail if found more than 5 large files
+        if [ ${{ steps.search.outputs.large_files }} -gt 5 ]; then
+          echo "::error::Too many large files detected!"
+          exit 1
+        fi
